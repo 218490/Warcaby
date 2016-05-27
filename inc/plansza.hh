@@ -7,20 +7,8 @@ struct pozycja
 {
   int I;
   int J;
-  bool operator ==(const pozycja &p)
-  {
-    if(p.I==this->I)
-      if(p.J==this->J)
-	return true;
-    return false;
-  }
-  bool operator !=(const pozycja &p)
-  {
-    if(p.I==this->I)
-      if(p.J==this->J)
-	return false;
-    return true;
-  }
+  bool operator ==(const pozycja &);
+  bool operator !=(const pozycja &);
 };
 struct pionek
 {
@@ -29,24 +17,8 @@ struct pionek
   bool bialy;
   bool damka=false;
   pozycja poz; //pierwsza liczba - wiersz, druga - kolumna, od 0 do 7
-  bool operator ==(pionek &p)
-  {
-    if(p.id==this->id)
-      if(p.brak==this->brak)
-	if(p.bialy==this->bialy)
-	  if(p.poz==this->poz)
-	    return true;
-    return false;
-  }
-  bool operator !=(pionek &p)
-  {
-    if(p.id==this->id)
-      if(p.brak==this->brak)
-	if(p.bialy==this->bialy)
-	  if(p.poz==this->poz)
-	    return false;
-    return true;
-  }    
+  bool operator ==(pionek &);
+  bool operator !=(pionek &);
 };
 class plansza
 {
