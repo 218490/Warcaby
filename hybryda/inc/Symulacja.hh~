@@ -1,0 +1,17 @@
+#ifndef SYMULACJA_HH
+#define SYMULACJA_HH
+
+#include <iostream>
+#include "RuchDane.hh"
+using namespace std;
+
+/*!
+ *\file
+ *\brief Implementacja funkcji symulujacych ruch przeciwnika w Warcabach
+ */
+
+int SymulujStandard(Plansza plansza,int& ID,string& strona);
+int RuszCzarne(Plansza plansza, int obecnagl, int zysk, int id, string& strona);
+int RuszBiale(Plansza plansza, int obecnagl, int zysk, int id);
+
+#endif
