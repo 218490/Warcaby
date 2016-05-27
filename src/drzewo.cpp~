@@ -1,0 +1,162 @@
+#include "drzewo.hh"
+Drzewo::Drzewo()
+{
+  straznik.kolor='b';
+  straznik.Ojciec= &straznik;
+  straznik.Lewy= &straznik;
+  straznik.Prawy= &straznik;
+  korzen= &straznik;
+}
+void Drzewo::add(int x)
+{
+  bool konczyc=false;
+  wezeldrzewa *NOWY, *pom;  // NOWY- nowy wezel, pom- wskaznik pomocniczy
+  NOWY->Lewy=&straznik;    //
+  NOWY->Prawy=&straznik;  //inicjalizowanie pol nowego wezla
+  NOWY->Ojciec=korzen;   //
+  NOWY->key=x;          //
+  if(NOWY->Ojciec == & straznik)
+    korzen=NOWY;
+  else
+    {
+      do //wykonuje dopuki nowa galaz nie zostanie przypisana
+	{
+	  if(x < NOWY->Ojciec->key)
+	    {
+	      if(NOWY->Ojciec->Lewy == &straznik)//jezeli jest to ostatni element
+		{
+		  NOWY->Ojciec->Lewy=NOWY;//przypisuje nowa galaz
+		  konczyc=true;
+		}
+	      else
+		NOWY->Ojciec=NOWY->Ojciec->Lewy;//idzie dalej w lewo
+	    }
+	  else
+	    {
+	      if(NOWY->Ojciec->Prawy == &straznik)//jezeli jest to ostatni element
+		{
+		  NOWY->Ojciec->Prawy = NOWY;//przypisuje nowa galaz
+		  konczyc=true;
+		}
+	      else
+		NOWY->Ojciec=NOWY->Ojciec->Prawy; //idzie dalej w prawo
+	    }
+	}
+      while(konczyc==false)
+	}
+  konczyc=false;
+  NOWY->kolor='R'; //nowy wezel bedzie wezlem czerwonym
+  while((NOWY != korzen) && (NOWY->Ojciec->kolor=='R') && konczyc==false)
+    {
+      if(NOWY->Ojciec == NOWY->Ojciec->Ojciec->Lewy)
+	{
+	  pom = NOWY->Ojciec->Ojciec->Prawy;
+	  if(pom->kolor =='R')
+	    {
+	      NOWY->Ojciec->kolor='B';
+	      pom->kolor='B';
+	      X->Ojciec->ojciec->kolor='R';
+	      NOWY=NOWY->Ojciec->Ojciec;
+	    }
+	  else
+	    {
+	      if(NOWY==NOWY->Ojciec->Prawy)
+		{
+		  NOWY=NOWY->Ojciec;
+		  RotWLew(NOWY);//rotacja w lewo
+		}
+	      NOWY->Ojciec->kolr = 'B';
+	      NOWY->Ojciec->Ojciec->kolor='R';
+	      RotWPr(NOWY->Ojciec->Ojciec);// rotacja w prawo
+	      konczyc=true;
+	    }
+	}
+      else
+	{
+	  pom=NOWY->Ojciec->Ojciec->Lewy;
+	  if(pom->kolor=='R')
+	    {
+	      NOWY->Ojciec->kolor='B';
+	      pom->kolor='B';
+	      NOWY->Ojciec->Ojciec->kolor='R';
+	      NOWY=NOWY->Ojciec->Ojciec;
+	    }
+	  else
+	    {
+	      if(NOWY==NOWY->Ojciec->Lewy)
+		{
+		  NOWY=NOWY->Ojciec;
+		  RotWPr(NOWY)//rotacja w prawo
+		}
+	      NOWY->Ojciec->kolor='B';
+	      NOWY->Ojciec->Ojciec->kolor='R';
+	      RotWLew(NOWY->Ojciec->Ojciec);//rotacja w lewo
+	      konczyc=true;
+	    }
+	}
+    }
+}
+void drzewo::RotWLew(wezeldrzewa *W)
+{
+  wezeldrzewa *p1, *p2; //wskazniki pomocnicze
+  p1=W->Prawy;
+  if(p1!= &straznik)
+    {
+      p2=W->Ojcec;
+      W->Prawy=p1->Lewy;
+      if(W->Prawy != &straznik)
+	W->Prawy->Ojciec=W;
+      p1->Lewy=W;
+      p1->Ojciec=p2;
+      W->Ojciec=p1;
+      if(p2!= &straznik)
+	{
+	  if(p2->Lewy==W)
+	    p2->Lewy=p1;
+	  else
+	    p2->Prawy=p1;
+	}
+      else
+	korzen=p1;
+    }     
+}
+void drzewo::RotWPr(wezeldrzewa *W)
+{
+  wezeldrzewa *p1, *p2; //wskazniki pomocnicze
+  p1=W->Lewy;
+  if(p1!= &straznik)
+    {
+      p2=W->Ojcec;
+      W->Lewy=p1->Prawy;
+      if(W->Lewy != &straznik)
+	W->Lewy->Ojciec=W;
+      p1->Prawy=W;
+      p1->Ojciec=p2;
+      W->Ojciec=p1;
+      if(p2!= &straznik)
+	{
+	  if(p2->Lewy==W)
+	    p2->Lewy=p1;
+	  else
+	    p2->Prawy=p1;
+	}
+      else
+	korzen=p1;
+    }     
+}
+wezeldrzewa drzewo::get(int x)
+{
+  wezeldrzewa *pom;
+  pom=korzem;                 //zmienna pomocnicza ustawiona na poczatek drzewa
+  while((pom->key != x) && (pom!= &straznik))
+    {
+      if(x<pom->key)
+	pom=pom->Lewy;
+      else
+	pom=pom->Prawy;
+    }
+  if(p==&straznik)
+    return NULL;
+  return pom;
+}
+

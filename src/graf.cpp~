@@ -1,0 +1,29 @@
+#include "graf.hh"
+
+Graf::Graf()
+{
+  E = new lista<edge>;
+  V = new lista<vertex>;
+}
+void Graf::addVertex(int i)
+{
+  V->add(i);
+  V->lp=i;
+}
+void Graf::addEdges(int X, int Y, int w=0)
+{
+  //dodac przeciazenia do listy!!!
+  E->add();
+  E->A=V->get(X);
+  E->B=V->get(Y);
+  V(X)->edges->add(E);
+  V(Y)->edges->add(E);
+  E->waga=w;
+}
+void Graf::removeVertex(int i)
+{
+  //usuniecie wskaznikow prowadzacych do krawedzi z nastepnych wieszcholkow
+  //usuniecie krawedzi
+  V->remove(i); //usuniecie wieszcholka
+  
+}

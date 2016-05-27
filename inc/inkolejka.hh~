@@ -1,0 +1,21 @@
+/*!
+\file
+\brief plik zawiera interfejs uzywany w kolejce
+*/
+#ifndef INKOLEJKA_HH
+#define INKOLEJKA_HH
+template <class typ> class inKolejka{
+public:
+  //! \brief usuwa pierwsza dana w kolejce
+  virtual void dequeue()=0;
+  //! \brief dodaje dana na koniec kolejki
+  virtual void enqueue(typ)=0;
+  //! \brief zwraca wartosc z poczatku kolejki, jezeli nie moze tego zrobic, zwroci wyjatek
+  virtual typ front ()=0;
+  //! \brief zwraca wartosc true gdy lista jest pusta lub false gdy jest na niej przynajmniej jeden element
+  virtual bool isEmpty()=0;
+  //! \brief zwraca liczbe elementow na stosie
+  virtual int size()=0;
+  
+};
+#endif

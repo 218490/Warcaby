@@ -1,0 +1,17 @@
+#ifndef STRDRZEWA_HH
+#define STRDRZEWA_HH
+
+struct wezlydrzewa{
+public:
+  //! wskaznik na gorna galaz/ ojca 
+  wezlydrzewa *Ojciec;
+  //! wskaznik na lewa galaz/ lewego syna
+  wezlydrzewa *Lewy;
+  //! wskaznik na prawa galaz/ prawego syna
+  wezlydrzewa *Prawy;
+  //! klucz
+  int key;
+  //! kolor galezi
+  char kolor;
+};
+#endif

@@ -1,0 +1,10 @@
+#ifndef EDGE_HH
+#define EDGE_HH
+#include lista.hh
+struct edge{
+public:
+  lista<* Verticle> edges;
+  int waga;
+}
+
+#endif
