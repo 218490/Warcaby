@@ -9,15 +9,21 @@ private:
   plansza szachownica;
   int glebokosc=4;
 public:
-  queue<int> DostepneBiale();
-  queue<int> DostepneCzarne();
+  queue<pozycja> KrolowaRuchy(int, char);
+  queue<pozycja> KrolowaRuchy(pionek);
+  int RuchKrolowa(int,char,pozycja);
+  int RuchKrolowa(pionek, pozycja);
+  queue<int> KrolowaBialaDostep();  //zwraca wszystkie biale krolowe
+  queue<int> KrolowaCzarnaDostep();//zwraca wszystkie czarne krolowe
+  queue<int> DostepneBiale();   //dostepne zwykle biale pionki
+  queue<int> DostepneCzarne(); //dostepne zwykle czarne pionki
   bool CzyBicie(char);        //czy bicie dla danego gracza lub ogolnie na szachownicy gdy nie podano koloru
   bool CzyBicie(pionek); //czy dany pionek ma bicie
   bool CzyBicie(int, char);
   bool CzyBicie(int, int);
-  bool CzyBiciePG(pionek); //czy dany pionek ma bicie prawy gorny rog
-  bool CzyBicieLG(pionek); //czy dany pionek ma bicie lewy gorny rog
-  bool CzyBiciePD(pionek); //czy dany pionek ma bicie prawy dolny rog
+  bool CzyBiciePG(pionek);    //czy dany pionek ma bicie prawy gorny rog
+  bool CzyBicieLG(pionek);   //czy dany pionek ma bicie lewy gorny rog
+  bool CzyBiciePD(pionek);  //czy dany pionek ma bicie prawy dolny rog
   bool CzyBicieLD(pionek); //czy dany pionek ma bicie lewy dolny rog
   bool DostepPrawo(int, char); //za pomoca odwolania dp id i koloru pionka
   bool DostepPrawo(pionek);   //za pomoca odwolania do pionka
@@ -37,13 +43,12 @@ public:
   list<int> DostepneBiciaCzarne();
   bool BiciePrawoTyl(int, char); //true- gdy mogl wykonac
   bool BicieLewoTyl (int, char);
-  bool BiciePrawoTyl(pionek); //true- gdy mogl wykonac
-  bool BicieLewoTyl (pionek);
+  bool BiciePrawoTyl(pionek);  //true- gdy mogl wykonac
+  bool BicieLewoTyl (pionek); // uzywany dla zwyklych pionkow
   bool BiciePrawoPrz(pionek); //true- gdy mogl wykonac
-  bool BicieLewoPrz (pionek);
+  bool BicieLewoPrz (pionek);// uzywane dla zwyklych pionkow
   /**/  int Glebokosc(){return glebokosc;};
   /**/void Trudnosc(int poziom){glebokosc=poziom;};
-
 };
 
 #endif
