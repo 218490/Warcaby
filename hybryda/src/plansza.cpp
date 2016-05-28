@@ -20,7 +20,7 @@ pionek plansza::wyszukajPionek(int x,int y)
 pionek plansza::wyszukajPionek(int ID, char kolor)
 {
   unsigned int i=0;
-  if(kolor=='b')
+  if(kolor=='B')
     {
       while(biale[i].id!=ID || i>biale.size())
 	i++;
@@ -28,7 +28,7 @@ pionek plansza::wyszukajPionek(int ID, char kolor)
 	throw brak_pionka();
       return biale[i];
     }
-  if(kolor=='c')
+  if(kolor=='C')
     {
       while(czarne[i].id!=ID || i>czarne.size())
 	i++;

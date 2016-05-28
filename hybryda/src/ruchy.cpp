@@ -12,7 +12,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
   
   if(pio.bialy==true)
     {
-      if(CzyBicie('b')==true)
+      if(CzyBicie('B')==true)
 	{
 	  if(CzyBicie(pio)==true)
 	    {
@@ -91,7 +91,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
     }
   if(pio.bialy==false)
     {
-      if(CzyBicie('c')==true)
+      if(CzyBicie('C')==true)
 	{
 	  if(CzyBicie(pio)==true)
 	    {
@@ -604,7 +604,7 @@ bool ruchy::CzyBicie(char kolor='n')
 {
   vector<pionek> pom;
   int licz=0;
-  if(kolor=='b')
+  if(kolor=='B')
     {
       pom=szachownica.BialeWGrze();
       for(unsigned int i=0; i<pom.size(); i++)
@@ -614,7 +614,7 @@ bool ruchy::CzyBicie(char kolor='n')
       if(licz>0)
 	return true;
     }
-  if(kolor=='c')
+  if(kolor=='C')
     {
       pom=szachownica.CzarneWGrze();
       for(unsigned int i=0; i<pom.size(); i++)
@@ -829,7 +829,7 @@ bool ruchy::DostepPrawo(pionek pio)
 
   if(pio.bialy==true)
   {
-    if(CzyBicie('b')==true && CzyBicie(pio)==false)
+    if(CzyBicie('B')==true && CzyBicie(pio)==false)
       return false;
     if(CzyBiciePG(pio)==true)
       return true;
@@ -841,7 +841,7 @@ bool ruchy::DostepPrawo(pionek pio)
   }
   if(pio.bialy==false)
   {
-    if(CzyBicie('c')==true && CzyBicie(pio)==false)
+    if(CzyBicie('C')==true && CzyBicie(pio)==false)
       return false;
     if(CzyBiciePD(pio)==true)
       return true;
@@ -883,7 +883,7 @@ bool ruchy::DostepLewo(pionek pio)
 
   if(pio.bialy==true)
   {
-    if(CzyBicie('b')==true && CzyBicie(pio)==false)
+    if(CzyBicie('B')==true && CzyBicie(pio)==false)
       return false;
     if(CzyBicieLG(pio)==true)
       return true;
@@ -895,7 +895,7 @@ bool ruchy::DostepLewo(pionek pio)
   }
   if(pio.bialy==false)
   {
-    if(CzyBicie('c')==true && CzyBicie(pio)==false)
+    if(CzyBicie('C')==true && CzyBicie(pio)==false)
       return false;
     if(CzyBicieLD(pio)==true)
       return true;	
