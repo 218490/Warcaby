@@ -406,12 +406,10 @@ queue<int> ruchy::DostepneBiale()
 		  wyjscie.push(pom[i].id);
 		}
 	      else
-		{
 		  if(DostepLewo(pom[i])==true)
 		    {
 		      wyjscie.push(pom[i].id);
 		    }
-		}
 	    }
 	}
     }
@@ -434,12 +432,10 @@ queue<int> ruchy::DostepneCzarne()
 		  wyjscie.push(pom[i].id);
 		}
 	      else
-		{
 		  if(DostepLewo(pom[i])==true)
 		    {
 		      wyjscie.push(pom[i].id);
 		    }
-		}
 	    }
 	}
     }
@@ -836,9 +832,9 @@ bool ruchy::DostepPrawo(pionek pio)
       return true;
     if(szachownica.wyszukajPionek(pio.poz.I+1, pio.poz.J+1).brak==true)
       return true;
-	if(pio.damka==true)
-		if(szachownica.wyszukajPionek(pio.poz.I-1, pio.poz.J+1).brak==true)
-			return true;
+    if(pio.damka==true)
+      if(szachownica.wyszukajPionek(pio.poz.I-1, pio.poz.J+1).brak==true)
+	return true;
   }
   if(pio.bialy==false)
   {

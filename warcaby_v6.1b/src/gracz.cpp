@@ -1,5 +1,4 @@
 #include "gracz.hh"
-#include <iostream>
 bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 {
   pozycja pom;
@@ -108,8 +107,6 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 	}
       else
 	{
-	  //    cout<<"y J-1 J+1: "<<y<<" "<<pio.poz.J-1<<" "<<pio.poz.J+1<<endl;
-	  //   cout<<"x I-1 I+1: "<<x<<" "<<pio.poz.I-1<<" "<<pio.poz.I+1<<endl;
 	  if(y==pio.poz.J+1 && x==pio.poz.I-1)
 	    {
 	      if(r.DostepPrawo(pio)==false)
@@ -181,7 +178,6 @@ pionek gracz::ZaznaczPionek(ruchy &r, int x, int y, char k='C')
   int pom;
   queue<int> dostepne;
   pio=r.wyszukajPionek(x,y);
-  cout<<pio.id<<endl;
   if(pio.brak==true)
     throw brak_pionka_na_podanej_pozycji();
   if(k=='C')

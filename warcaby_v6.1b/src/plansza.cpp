@@ -1,5 +1,64 @@
 #include "plansza.hh"
 #include <iostream>
+plansza plansza::operator =(const plansza p)
+{
+  pionek pom; pom.brak=true; pom.id=0; pom.damka=false;
+  biale=p.BialeWGrze();
+  czarne=p.CzarneWGrze();
+  for(int i=0; i<8; i++)
+    {
+      for(int j=0; j<8; j++)
+	{
+	  pom.poz.I=i; pom.poz.J=j;
+	  tablica[i][j]=pom;
+	}
+    }
+  pom.brak=false;
+  for(unsigned int i=0; i<biale.size(); i++)
+    {
+      pom.id=biale[i].id; pom.bialy=true;
+      pom.poz.I=biale[i].poz.I; pom.poz.J=biale[i].poz.J;
+      pom.damka=biale[i].damka;
+      tablica[pom.poz.I][pom.poz.J]=pom;					
+    }
+  for(unsigned int i=0; i<czarne.size(); i++)
+    {
+      pom.id=czarne[i].id; pom.bialy=false;
+      pom.poz.I=czarne[i].poz.I; pom.poz.J=czarne[i].poz.J;
+      pom.damka=czarne[i].damka;
+      tablica[pom.poz.I][pom.poz.J]=pom;					
+    }  
+}
+plansza& plansza::operator =(const plansza& p)
+{
+  pionek pom; pom.brak=true; pom.id=0; pom.damka=false;
+  this->biale=p.BialeWGrze();
+  this->czarne=p.CzarneWGrze();
+  for(int i=0; i<8; i++)
+    {
+      for(int j=0; j<8; j++)
+	{
+	  pom.poz.I=i; pom.poz.J=j;
+	  tablica[i][j]=pom;
+	}
+    }
+  pom.brak=false;
+  for(unsigned int i=0; i<biale.size(); i++)
+    {
+      pom.id=biale[i].id; pom.bialy=true;
+      pom.poz.I=biale[i].poz.I; pom.poz.J=biale[i].poz.J;
+      pom.damka=biale[i].damka;
+      tablica[pom.poz.I][pom.poz.J]=pom;					
+    }
+  for(unsigned int i=0; i<czarne.size(); i++)
+    {
+      pom.id=czarne[i].id; pom.bialy=false;
+      pom.poz.I=czarne[i].poz.I; pom.poz.J=czarne[i].poz.J;
+      pom.damka=czarne[i].damka;
+      tablica[pom.poz.I][pom.poz.J]=pom;					
+    }
+  
+}
 vector<pionek> plansza::BialeWGrze()
 {
 	return biale;
@@ -16,7 +75,9 @@ bool plansza::wyjscie_poza_tablice(int x, int y)
 }
 pionek plansza::wyszukajPionek(int x,int y)
 {
- return tablica[x][y];
+  if(x>7 || y>7 || x<0 || y<0)
+    throw wyjscie_poza_plansze();
+  return tablica[x][y];
 }
 pionek plansza::wyszukajPionek(int ID, char kolor)
 {
@@ -101,6 +162,8 @@ void plansza::przestaw(pionek p, int x, int y)
     {
       while(biale[i]!=p)
 	i++;
+      if(x==7)
+	p.damka=true;
       p.poz.I=x;
       p.poz.J=y;
       tablica[biale[i].poz.I][biale[i].poz.J]=br;
@@ -111,6 +174,8 @@ void plansza::przestaw(pionek p, int x, int y)
     {
       while(czarne[i]!=p)
 	i++;
+      if(x==0)
+	p.damka=true;
       p.poz.I=x;
       p.poz.J=y;
       tablica[czarne[i].poz.I][czarne[i].poz.J]=br;
@@ -121,27 +186,7 @@ void plansza::przestaw(pionek p, int x, int y)
 }
 void plansza::przestaw(int x, int y, int nx, int ny)
 {
-  pionek pom; //pomocnicza zmienna przechowujaca pionek na poprzedniej pozycji
-  pionek pom2; //pusty pionek do zmiany pola na puste
-  int i;
-  if(tablica[x][y].brak==true)
-    throw brak_pionka();
-  if(tablica[nx][ny].brak==false)
-    throw pole_zajete();
-  pom=tablica[x][y];
-  tablica[x][y]=pom2;
-  pom.poz.I=nx;
-  pom.poz.J=ny;
-  tablica[nx][ny]=pom;
-  if(pom.bialy==true)
-    {
-      while(biale[i]!=pom)
-	i++;
-      biale[i]=pom;
-    }
-  while(czarne[i]!=pom)
-    i++;
-  czarne[i]=pom;
+  przestaw(wyszukajPionek(x,y), nx, ny);
 }
 plansza::plansza()
 {

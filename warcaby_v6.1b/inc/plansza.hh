@@ -44,6 +44,8 @@ public:
   void wyswietl();
   void wyswietl(pionek);
   void wyswietl(int, int);
+  plansza& operator = (const plansza&);
+  plansza operator =(const plansza);
 };
 
 #endif
