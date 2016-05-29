@@ -1,5 +1,6 @@
 #include "plansza.hh"
 #include <iostream>
+/*
 plansza::plansza(const plansza &p)
 {
   vector<pionek> pomo=p.BialeWGrze();
@@ -59,7 +60,7 @@ plansza& plansza::operator =(const plansza& p)
       tablica[pom.poz.I][pom.poz.J]=pom;					
     }
   return *this;
-}
+  }*/
 vector<pionek> plansza::BialeWGrze()
 {
 	return biale;
@@ -194,10 +195,10 @@ plansza::plansza()
   pionek p;
   int pom=1;
   p.brak=true; p.id=0; 
-  tablica= new pionek*[rozmiar];
+  //tablica= new pionek*[rozmiar];
   for(int i=0; i<rozmiar; i++)
     {
-      tablica[i]=new pionek[rozmiar];
+      //tablica[i]=new pionek[rozmiar];
       for(int j=0; j<rozmiar; j++)
 	{
 	  p.poz.I=i; p.poz.J=j;
@@ -266,9 +267,9 @@ plansza::~plansza()
 {
   biale.clear();
   czarne.clear();
-  for(int i=0; i<rozmiar; i++)
-    delete [] tablica[i];
-  delete [] tablica;
+  //for(int i=0; i<rozmiar; i++)
+  //  delete [] tablica[i];
+  //delete [] tablica;
 }
 bool pozycja::operator ==(const pozycja &p)
 {

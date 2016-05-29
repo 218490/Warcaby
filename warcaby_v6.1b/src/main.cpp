@@ -2,8 +2,8 @@
 #include "Symulacja.hh"
 using namespace std;
 
-int ProbaB(ruchy &plansza,int id){
-  ruchy planszapomo(plansza);
+int ProbaB(ruchy plansza,int id){
+  ruchy planszapomo=plansza;
   return plansza.RuchPrawo(  plansza.wyszukajPionek(id, 'B'));
 }
 
@@ -11,7 +11,7 @@ int main(){
   ruchy plansza;
   int ID,flaga;
   string strona;
-   pozycja miejsce;
+  pozycja miejsce;
   plansza.wyswietl();
   plansza.wyswietl(plansza.wyszukajPionek(11, 'B'));
   plansza.RuchLewo(11,'B');
