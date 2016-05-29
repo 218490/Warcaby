@@ -3,8 +3,8 @@
 plansza plansza::operator =(const plansza p)
 {
   pionek pom; pom.brak=true; pom.id=0; pom.damka=false;
-  biale=p.BialeWGrze();
-  czarne=p.CzarneWGrze();
+  biale=p.biale;
+  czarne=p.czarne;
   for(int i=0; i<8; i++)
     {
       for(int j=0; j<8; j++)
@@ -27,13 +27,13 @@ plansza plansza::operator =(const plansza p)
       pom.poz.I=czarne[i].poz.I; pom.poz.J=czarne[i].poz.J;
       pom.damka=czarne[i].damka;
       tablica[pom.poz.I][pom.poz.J]=pom;					
-    }  
+    }
 }
 plansza& plansza::operator =(const plansza& p)
 {
   pionek pom; pom.brak=true; pom.id=0; pom.damka=false;
-  this->biale=p.BialeWGrze();
-  this->czarne=p.CzarneWGrze();
+  this->biale=p.biale;
+  this->czarne=p.czarne;
   for(int i=0; i<8; i++)
     {
       for(int j=0; j<8; j++)

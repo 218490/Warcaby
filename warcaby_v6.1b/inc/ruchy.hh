@@ -54,7 +54,8 @@ public:
   void wyswietl(pionek p){szachownica.wyswietl(p);}
   void wyswietl(int x, int y){szachownica.wyswietl(x,y);}
   pionek wyszukajPionek(int x, int y){return szachownica.wyszukajPionek(x,y);}
-  pionek wyszukajPionek(int I, char y){return szachownica.wyszukajPionek(I,y);};
+  pionek wyszukajPionek(int I, char y){return szachownica.wyszukajPionek(I,y);}
+  //ruchy 
 };
 
 #endif
