@@ -49,6 +49,12 @@ public:
   bool BicieLewoPrz (pionek);// uzywane dla zwyklych pionkow
   /**/  int Glebokosc(){return glebokosc;};
   /**/void Trudnosc(int poziom){glebokosc=poziom;};
+  class brak_pionka{};
+  void wyswietl(){szachownica.wyswietl();}
+  void wyswietl(pionek p){szachownica.wyswietl(p);}
+  void wyswietl(int x, int y){szachownica.wyswietl(x,y);}
+  pionek wyszukajPionek(int x, int y){return szachownica.wyszukajPionek(x,y);}
+  pionek wyszukajPionek(int I, char y){return szachownica.wyszukajPionek(I,y);};
 };
 
 #endif

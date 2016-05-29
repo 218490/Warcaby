@@ -41,6 +41,9 @@ public:
   pionek wyszukajPionek(int, char);
   vector<pionek> BialeWGrze();
   vector<pionek> CzarneWGrze();
+  void wyswietl();
+  void wyswietl(pionek);
+  void wyswietl(int, int);
 };
 
 #endif
