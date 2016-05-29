@@ -1,10 +1,11 @@
 #include "plansza.hh"
 #include <iostream>
-plansza plansza::operator =(const plansza p)
+plansza::plansza(const plansza &p)
 {
+  vector<pionek> pomo=p.BialeWGrze();
   pionek pom; pom.brak=true; pom.id=0; pom.damka=false;
-  biale=p.biale;
-  czarne=p.czarne;
+  this->biale=p.biale;
+  this->czarne=p.czarne;
   for(int i=0; i<8; i++)
     {
       for(int j=0; j<8; j++)
@@ -57,7 +58,7 @@ plansza& plansza::operator =(const plansza& p)
       pom.damka=czarne[i].damka;
       tablica[pom.poz.I][pom.poz.J]=pom;					
     }
-  
+  return *this;
 }
 vector<pionek> plansza::BialeWGrze()
 {
