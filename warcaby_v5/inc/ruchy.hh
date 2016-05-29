@@ -25,7 +25,7 @@ public:
   bool CzyBicieLG(pionek);   //czy dany pionek ma bicie lewy gorny rog
   bool CzyBiciePD(pionek);  //czy dany pionek ma bicie prawy dolny rog
   bool CzyBicieLD(pionek); //czy dany pionek ma bicie lewy dolny rog
-  bool DostepPrawo(int, char); //za pomoca odwolania dp id i koloru pionka
+  bool DostepPrawo(int, char); //za pomoca odwolania do id i koloru pionka
   bool DostepPrawo(pionek);   //za pomoca odwolania do pionka
   bool DostepPrawo(int, int);//za pomoca odwolania do konkretnego pola
   bool DostepLewo(int, char);

@@ -279,11 +279,19 @@ void plansza::wyswietl()
 	      }
 	    else{
 	    if (tablica[i][j].bialy == false && tablica[i][j].brak == false)
-	      //cout<< "\033[1;37m " << tablica[i][j].id << " \033[0m";
-	      cout<< "\033[1;31m " << "x" << " \033[0m";
+	      {
+		if(tablica[i][j].damka==false)
+		  //cout<< "\033[1;37m " << tablica[i][j].id << " \033[0m";
+		  cout<< "\033[1;31m " << "x" << " \033[0m";
+		else cout<< "\033[1;31m " << "X" << " \033[0m";
+	      }
 	    else if(tablica[i][j].bialy == true && tablica[i][j].brak == false)
-	      //cout<< "\033[1;31m " << tablica[i][j].id << " \033[0m";
-	      cout<< "\033[1;37m " << "o" << " \033[0m";
+	      {
+		if(tablica[i][j].damka==false)
+		  //cout<< "\033[1;31m " << tablica[i][j].id << " \033[0m";
+		  cout<< "\033[1;37m " << "o" << " \033[0m";
+		else cout<< "\033[1;37m " << "Q" << " \033[0m";
+	      }
 	    }
 	}
     }
@@ -318,15 +326,22 @@ void plansza::wyswietl(pionek pio)
 		    else
 		      cout<< "\033[47m\033[0;34m x \033[0m";
 		  }
-		else
+		else{
 		  if (tablica[i][j].bialy == false
 		      && tablica[i][j].brak == false)
-		    //cout<< "\033[1;37m " << tablica[i][j].id << " \033[0m";
-		    cout<< "\033[1;31m " << "x" << " \033[0m";
+		    {
+		      if(tablica[i][j].damka==false)
+			cout<< "\033[1;31m " << "x" << " \033[0m";
+		      else  cout<< "\033[1;31m " << "X" << " \033[0m";
+		    }
 		  else if(tablica[i][j].bialy == true
 			  && tablica[i][j].brak == false)
-		    //cout<< "\033[1;31m " << tablica[i][j].id << " \033[0m";
-		    cout<< "\033[1;37m " << "o" << " \033[0m";
+		    {
+		      if(tablica[i][j].damka==false)
+			cout<< "\033[1;37m " << "o" << " \033[0m";
+		      else cout<< "\033[1;37m " << "Q" << " \033[0m";
+		    }
+		}
 	      }
 	}
     }
@@ -361,15 +376,22 @@ void plansza::wyswietl(int x, int y)
 		    else
 		      cout<< "\033[43m\033[0;33m " << "x" << " \033[0m";
 		  }
-		else
+		else{
 		  if (tablica[i][j].bialy == false
-		      && tablica[i][j].brak == false)
+		      && tablica[i][j].brak == false){
+		    if(tablica[i][j].damka==false)
 		    //cout<< "\033[1;37m " << tablica[i][j].id << " \033[0m";
 		    cout<< "\033[1;31m " << "x" << " \033[0m";
+		    else cout<< "\033[1;31m " << "X" << " \033[0m";
+		  }
 		  else if(tablica[i][j].bialy == true
-			  && tablica[i][j].brak == false)
+			  && tablica[i][j].brak == false){
+		    if(tablica[i][j].damka==false)
 		    //cout<< "\033[1;31m " << tablica[i][j].id << " \033[0m";
 		    cout<< "\033[1;37m " << "o" << " \033[0m";
+		    else cout<< "\033[1;37m " << "Q" << " \033[0m";
+		  }
+		}
 	      }
 	}
     }

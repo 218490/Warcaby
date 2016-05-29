@@ -463,13 +463,11 @@ int ruchy::RuchPrawo(pionek pio)
     {
       if(CzyBiciePG(pio)==true)
 	{
-	  cout<<"bicie"<<endl;
 	  BiciePrawoPrz(pio);
 	  return 1;
 	}
       else
 	{
-	  cout<<"przestaw pionek"<<endl;
 	  szachownica.przestaw(pio,pio.poz.I+1, pio.poz.J+1);
 	  return 0;
 	}
