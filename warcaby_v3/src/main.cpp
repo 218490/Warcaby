@@ -10,26 +10,21 @@ int main(){
   pozycja miejsce;
   plansza.wyswietl();
   plansza.wyswietl(plansza.wyszukajPionek(11, 'B'));
-  plansza.RuchPrawo(11,'B');
+  plansza.RuchLewo(11,'B');
   plansza.wyswietl();
-  plansza.wyswietl(plansza.wyszukajPionek(11, 'B'));
+  plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
   plansza.RuchPrawo(12,'B');
+  plansza.wyswietl();
+  plansza.wyswietl(plansza.wyszukajPionek(10, 'C'));
+  plansza.RuchLewo(10,'C');
+  plansza.wyswietl();
+  plansza.wyswietl(plansza.wyszukajPionek(11, 'C'));
+  plansza.RuchPrawo(11,'C');
   plansza.wyswietl();
   plansza.wyswietl(plansza.wyszukajPionek(10, 'C'));
   plansza.RuchPrawo(10,'C');
   plansza.wyswietl();
-  plansza.wyswietl(plansza.wyszukajPionek(11, 'C'));
-  plansza.RuchPrawo(11,'C');
-  plansza.wyswietl();
-   plansza.wyswietl(plansza.wyszukajPionek(10, 'C'));
-  plansza.RuchPrawo(10,'C');
-  plansza.wyswietl();
-  plansza.wyswietl(plansza.wyszukajPionek(11, 'C'));
-  plansza.RuchPrawo(11,'C');
-  plansza.wyswietl();
-  plansza.wyswietl(plansza.wyszukajPionek(11, 'C'));
-  plansza.RuchLewo(11,'C');
-  plansza.wyswietl();
+
   int zysk=Symuluj(plansza,ID,strona,flaga,miejsce);
 
   if(flaga==0){

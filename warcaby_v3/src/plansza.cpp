@@ -202,7 +202,7 @@ plansza::plansza()
   for(int i=0; i<rozmiar;i=i+2)
     {
       p.id=pom;
-      p.poz.I=rozmiar-1; p.poz.J=i;
+      p.poz.I=rozmiar-2; p.poz.J=i;
       tablica[rozmiar-2][i]=p;
       czarne.push_back(p);
       pom++;
@@ -210,7 +210,7 @@ plansza::plansza()
   for(int i=1; i<rozmiar;i=i+2)
     {
       p.id=pom;
-      p.poz.I=rozmiar-2; p.poz.J=i;
+      p.poz.I=rozmiar-3; p.poz.J=i;
       tablica[rozmiar-3][i]=p;
       czarne.push_back(p);
       pom++;
