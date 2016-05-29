@@ -137,13 +137,13 @@ void plansza::usun(int x, int y)
   tablica[x][y]=pom2;
   if(pom.bialy==true)
     {
-      while(biale[i]==pom)
+      while(biale[i]!=pom)
 	i++;
       biale.erase(biale.begin()+i);
     }
   else
     {
-      while(czarne[i]==pom)
+      while(czarne[i]!=pom)
 	i++;
       czarne.erase(czarne.begin()+i);
     }

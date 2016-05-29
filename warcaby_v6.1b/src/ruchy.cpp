@@ -393,6 +393,7 @@ queue<int> ruchy::DostepneBiale()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.BialeWGrze();
+  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -419,6 +420,7 @@ queue<int> ruchy::DostepneCzarne()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.CzarneWGrze();
+  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -500,7 +502,7 @@ int ruchy::RuchLewo(pionek pio)
     }
   else
     {
-      if(CzyBiciePD(pio)==true)
+      if(CzyBicieLD(pio)==true)
 	{
 	  BicieLewoPrz(pio);
 	  return -1;
@@ -967,6 +969,7 @@ bool ruchy::CzyBiciePG(pionek pio)
     }
   return false;
 }
+
 bool ruchy::CzyBicieLG(pionek pio)
 {
 //###################### DLA ZWYKLYCH PIONKOW ############################
