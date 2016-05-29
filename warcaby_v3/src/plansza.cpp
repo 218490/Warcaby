@@ -32,7 +32,7 @@ pionek plansza::wyszukajPionek(int ID, char kolor)
   if(kolor=='C')
     {
       while(czarne[i].id!=ID || i>czarne.size())
-	i++;
+	  i++;
       if(i>czarne.size())
 	throw brak_pionka();
       return czarne[i];
@@ -53,12 +53,15 @@ void plansza::usun(pionek p)
       tablica[biale[i].poz.I][biale[i].poz.J]=pom;
       biale.erase(biale.begin()+i);
     }
-  while(czarne[i]!=p || i>czarne.size())
-    i++;
-  if(i>czarne.size())
-    throw brak_pionka();
-  tablica[czarne[i].poz.I][czarne[i].poz.J]=pom;
-  czarne.erase(czarne.begin()+i);
+  else
+    {
+      while(czarne[i]!=p || i>czarne.size())
+	i++;
+      if(i>czarne.size())
+	throw brak_pionka();
+      tablica[czarne[i].poz.I][czarne[i].poz.J]=pom;
+      czarne.erase(czarne.begin()+i);
+    }
 }
 void plansza::usun(int x, int y)
 {
@@ -75,9 +78,12 @@ void plansza::usun(int x, int y)
 	i++;
       biale.erase(biale.begin()+i);
     }
-  while(czarne[i]==pom)
-    i++;
-  czarne.erase(czarne.begin()+i);
+  else
+    {
+      while(czarne[i]==pom)
+	i++;
+      czarne.erase(czarne.begin()+i);
+    }
 }
 void plansza::przestaw(pionek p, int x, int y)
 {
@@ -108,7 +114,7 @@ void plansza::przestaw(pionek p, int x, int y)
       p.poz.I=x;
       p.poz.J=y;
       tablica[czarne[i].poz.I][czarne[i].poz.J]=br;
-      biale[i]=p;
+      czarne[i]=p;
       tablica[x][y]=p;
     }
       
@@ -190,7 +196,7 @@ plansza::plansza()
       p.id=pom;
       p.poz.I=rozmiar-1; p.poz.J=i;
       tablica[rozmiar-1][i]=p;
-      biale.push_back(p);
+      czarne.push_back(p);
       pom++;
     }
   for(int i=0; i<rozmiar;i=i+2)
@@ -198,7 +204,7 @@ plansza::plansza()
       p.id=pom;
       p.poz.I=rozmiar-1; p.poz.J=i;
       tablica[rozmiar-2][i]=p;
-      biale.push_back(p);
+      czarne.push_back(p);
       pom++;
     }
   for(int i=1; i<rozmiar;i=i+2)
@@ -206,7 +212,7 @@ plansza::plansza()
       p.id=pom;
       p.poz.I=rozmiar-2; p.poz.J=i;
       tablica[rozmiar-3][i]=p;
-      biale.push_back(p);
+      czarne.push_back(p);
       pom++;
     }
 }
@@ -301,16 +307,16 @@ void plansza::wyswietl(pionek pio)
 		if((i+j)%2==0)
 		  cout<< "\033[1;22m " <<" "<< " \033[0m";
 		else
-		  cout<< "\033[1;42m  " << "" << " \033[0m";
+		  cout<< "\033[1;42m " << " " << " \033[0m";
 	      }
 	    else
 	      {
 		if(tablica[i][j]==pio)
 		  {
 		    if(pio.bialy==true)
-		      cout<< "\033[43m\033[0;34m " << "o" << " \033[0m";
+		      cout<< "\033[47;0;34m o \033[0m";
 		    else
-		      cout<< "\0333[43m\033[0;33m " << "x" << " \033[0m";
+		      cout<< "\033[47m\033[0;34m x \033[0m";
 		  }
 		else
 		  if (tablica[i][j].bialy == false
@@ -353,7 +359,7 @@ void plansza::wyswietl(int x, int y)
 		    if(wyszukajPionek(x,y).bialy==true)
 		      cout<< "\033[43m\033[0;34m " << "o" << " \033[0m";
 		    else
-		      cout<< "\0333[43m\033[0;33m " << "x" << " \033[0m";
+		      cout<< "\033[43m\033[0;33m " << "x" << " \033[0m";
 		  }
 		else
 		  if (tablica[i][j].bialy == false
