@@ -32,8 +32,13 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		throw niedozwolony_ruch();
 	      else
 		{
+		  if(r.CzyBicie(pio)==true)
+		    {
+		      r.RuchPrawo(pio);
+		      return true;
+		    }
 		  r.RuchPrawo(pio);
-		  return true;
+		  return false;
 		}
 	    }
 	  else if(y==pio.poz.J-1 && x==pio.poz.I+1)
@@ -42,8 +47,13 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		throw niedozwolony_ruch();
 	      else
 		{
+		  if(r.CzyBicie(pio)==true)
+		    {
+		      r.RuchLewo(pio);
+		      return true;
+		    }
 		  r.RuchLewo(pio);
-		  return true;
+		  return false;
 		}
 	    }
 	  else if(y==pio.poz.J+2 && x==pio.poz.I+2)
@@ -108,16 +118,20 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 	}
       else
 	{
-	  //    cout<<"y J-1 J+1: "<<y<<" "<<pio.poz.J-1<<" "<<pio.poz.J+1<<endl;
-	  //   cout<<"x I-1 I+1: "<<x<<" "<<pio.poz.I-1<<" "<<pio.poz.I+1<<endl;
 	  if(y==pio.poz.J+1 && x==pio.poz.I-1)
 	    {
 	      if(r.DostepPrawo(pio)==false)
 		throw niedozwolony_ruch();
 	      else
 		{
+		  if(r.CzyBicie(pio)==true)
+		    {
+		      r.RuchPrawo(pio);
+		      return true;
+		    }
 		  r.RuchPrawo(pio);
-		  return true;
+		  return false;
+
 		}
 	    }
 	  else if(y==pio.poz.J-1 && x==pio.poz.I-1)
@@ -126,8 +140,13 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		throw niedozwolony_ruch();
 	      else
 		{
+		  if(r.CzyBicie(pio)==true)
+		    {
+		      r.RuchLewo(pio);
+		      return true;
+		    }
 		  r.RuchLewo(pio);
-		  return true;
+		  return false;
 		}
 	    }
 	  else if(y==pio.poz.J+2 && x==pio.poz.I-2)
@@ -181,7 +200,6 @@ pionek gracz::ZaznaczPionek(ruchy &r, int x, int y, char k='C')
   int pom;
   queue<int> dostepne;
   pio=r.wyszukajPionek(x,y);
-  cout<<pio.id<<endl;
   if(pio.brak==true)
     throw brak_pionka_na_podanej_pozycji();
   if(k=='C')
@@ -192,9 +210,14 @@ pionek gracz::ZaznaczPionek(ruchy &r, int x, int y, char k='C')
       throw pionek_przeciwnika();
   if(pio.damka==false)
     {
-      dostepne=r.DostepneCzarne();
+      if(k=='C')
+	dostepne=r.DostepneCzarne();
+      else
+	dostepne=r.DostepneBiale();
+      cout<<"Dostepne pionki do ruchu "<< dostepne.size()<<endl;
       while(dostepne.empty()==false)
 	{
+	  cout<<"Dostepne pionki do ruchu "<< dostepne.front()<<endl;
 	  pom=dostepne.front();
 	  if(pom==pio.id)
 	    {
@@ -206,7 +229,10 @@ pionek gracz::ZaznaczPionek(ruchy &r, int x, int y, char k='C')
     }
   else
     {
-      dostepne=r.KrolowaCzarnaDostep();
+      if(k=='C')
+	dostepne=r.KrolowaCzarnaDostep();
+      else
+	dostepne=r.KrolowaBialaDostep();
       while(dostepne.empty()==false)
 	{
 	  pom=dostepne.front();

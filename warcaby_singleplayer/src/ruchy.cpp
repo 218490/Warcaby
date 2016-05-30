@@ -393,6 +393,7 @@ queue<int> ruchy::DostepneBiale()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.BialeWGrze();
+  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -406,12 +407,10 @@ queue<int> ruchy::DostepneBiale()
 		  wyjscie.push(pom[i].id);
 		}
 	      else
-		{
 		  if(DostepLewo(pom[i])==true)
 		    {
 		      wyjscie.push(pom[i].id);
 		    }
-		}
 	    }
 	}
     }
@@ -421,6 +420,7 @@ queue<int> ruchy::DostepneCzarne()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.CzarneWGrze();
+  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -434,12 +434,10 @@ queue<int> ruchy::DostepneCzarne()
 		  wyjscie.push(pom[i].id);
 		}
 	      else
-		{
 		  if(DostepLewo(pom[i])==true)
 		    {
 		      wyjscie.push(pom[i].id);
 		    }
-		}
 	    }
 	}
     }
@@ -504,7 +502,7 @@ int ruchy::RuchLewo(pionek pio)
     }
   else
     {
-      if(CzyBiciePD(pio)==true)
+      if(CzyBicieLD(pio)==true)
 	{
 	  BicieLewoPrz(pio);
 	  return -1;
@@ -836,9 +834,9 @@ bool ruchy::DostepPrawo(pionek pio)
       return true;
     if(szachownica.wyszukajPionek(pio.poz.I+1, pio.poz.J+1).brak==true)
       return true;
-	if(pio.damka==true)
-		if(szachownica.wyszukajPionek(pio.poz.I-1, pio.poz.J+1).brak==true)
-			return true;
+    if(pio.damka==true)
+      if(szachownica.wyszukajPionek(pio.poz.I-1, pio.poz.J+1).brak==true)
+	return true;
   }
   if(pio.bialy==false)
   {
@@ -971,6 +969,7 @@ bool ruchy::CzyBiciePG(pionek pio)
     }
   return false;
 }
+
 bool ruchy::CzyBicieLG(pionek pio)
 {
 //###################### DLA ZWYKLYCH PIONKOW ############################

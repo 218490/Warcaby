@@ -23,7 +23,7 @@ struct pionek
 class plansza
 {
 private:
-  pionek **tablica;
+  pionek tablica[rozmiar][rozmiar];
   vector<pionek> biale;
   vector<pionek> czarne;
 public:
@@ -39,11 +39,13 @@ public:
   void usun(int, int);
   pionek wyszukajPionek(int, int);
   pionek wyszukajPionek(int, char);
-  vector<pionek> BialeWGrze();
-  vector<pionek> CzarneWGrze();
+  vector<pionek> BialeWGrze ();
+  vector<pionek> CzarneWGrze ();
   void wyswietl();
   void wyswietl(pionek);
   void wyswietl(int, int);
+  //plansza& operator = (const plansza&);
+  //plansza(const plansza&);
 };
 
 #endif

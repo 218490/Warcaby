@@ -10,13 +10,13 @@ int main(){
   string strona;
   pozycja miejsce;
   int x, y, a, b;
-  int i=0;
+  bool i=true;
   pionek pio;
   plansza.wyswietl();
   gracz gr;
   while(i<2)
     {
-      while(i<1)
+      while(i==true)
 	{
 	  try{
 	    cout<<"gracz bialy"<<endl;
@@ -27,68 +27,95 @@ int main(){
 	    pio=gr.ZaznaczPionek(plansza,x-1,y-1, 'B');
 	    cout<<"Podaj wiersz i kolumne pola na ktore chcesz sie ruszyc"<<endl;
 	    cin>>a>>b;
-	    //if wykonano ruch -> kolej przeciwnika
-		gr.RuszPionek(plansza, pio, a-1, b-1);
-		i=1;
+	    i=gr.RuszPionek(plansza, pio, a-1, b-1);
+	    pio=plansza.wyszukajPionek(a-1,b-1);
+	    if(plansza.CzyBicie(pio)!=true || i!=true)
+	      i=false;
 	  }
 	  catch (gracz::brak_ruchu)
 	    {
+	      cout<<endl;
 	      cout<<"brak mozliwosci wykonania ruchu tym pionkiem"<<endl;
+	      cout<<endl;
 	    }
 	  catch(gracz::brak_pionka_na_podanej_pozycji)
 	    {
+	      cout<<endl;
 	      cout<<"brak pionka na podanej pozycji"<<endl;
+	      cout<<endl;
 	    }
 	  catch(gracz::pionek_przeciwnika)
 	    {
+	      cout<<endl;
 	      cout<<"zaznaczony pionek nalezy do przeciwnika"<<endl;
+	      cout<<endl;
 	    }
 	  catch (gracz::niedozwolony_ruch)
 	    {
+	      cout<<endl;
 	      cout<<"ten ruch jest niedozwolnoy"<<endl;
+	      cout<<endl;
+	    }
+	  catch (plansza::wyjscie_poza_plansze)
+	    {
+	      cout<<endl;
+	      cout<<"podano zle pole"<<endl;
+	      cout<<endl;
 	    }
 	}
-      i=0;
-      while(i<1)
+      i=true;
+      cout<<endl;
+      while(i==true)
 	{
 	  try{
-	    cout<<"gracz bialy"<<endl;
+	    cout<<"gracz czarny"<<endl;
 	    plansza.wyswietl();
 	    //ruch gracza bialego
 	    cout<<"Podaj wiersz i kolumne pionka ktorym chcesz sie ruszyc"<<endl;
 	    cin>>x>>y;
-	    pio=gr.ZaznaczPionek(plansza,x-1,y-1, 'B');
+	    pio=gr.ZaznaczPionek(plansza,x-1,y-1, 'C');
 	    cout<<"Podaj wiersz i kolumne pola na ktore chcesz sie ruszyc"<<endl;
 	    cin>>a>>b;
 	    //if wykonano ruch -> kolej przeciwnika
-	    if(a!=x && b!=y)
-	      {
-		gr.RuszPionek(plansza, pio, a-1, b-1);
-		i=1;
-	      }
+
+	    i=gr.RuszPionek(plansza, pio, a-1, b-1);
+	    pio=plansza.wyszukajPionek(a-1,b-1);
+	    if(plansza.CzyBicie(pio)==false || i==false)
+	      i=false;
 	  }
 	  catch (gracz::brak_ruchu)
 	    {
+	      cout<<endl;
 	      cout<<"brak mozliwosci wykonania ruchu tym pionkiem"<<endl;
-	      continue;
+	      cout<<endl;
 	    }
 	  catch(gracz::brak_pionka_na_podanej_pozycji)
 	    {
+	      cout<<endl;
 	      cout<<"brak pionka na podanej pozycji"<<endl;
-	      continue;
+	      cout<<endl;
 	    }
 	  catch (gracz::pionek_przeciwnika)
 	    {
+	      cout<<endl;
 	      cout<<"zaznaczony pionek nalezy do przeciwnika"<<endl;
-	      continue;
+	      cout<<endl;
 	    }
 	  catch (gracz::niedozwolony_ruch)
 	    {
+	      cout<<endl;
 	      cout<<"ten ruch jest niedozwolnoy"<<endl;
-	      continue;
+	      cout<<endl;
+	    }
+	  catch (plansza::wyjscie_poza_plansze)
+	    {
+	      cout<<endl;
+	      cout<<"podano zle pole"<<endl;
+	      cout<<endl;
 	    }
 	}
-      i=0;
+      i=true;
+      cout<<endl;
     }
  
   int zysk=Symuluj(plansza,ID,strona,flaga,miejsce);
