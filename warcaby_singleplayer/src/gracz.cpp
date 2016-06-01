@@ -12,9 +12,11 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
       if(pio.damka==true)
 	{
 	  dostepned=r.KrolowaRuchy(pio);
+	  cout<<"ilosc dostepnych ruchow "<<dostepned.size()<<endl;
 	  while(dostepned.empty()==false)
 	    {
 	      pom=dostepned.front();
+	      cout<<"dostepne pole "<<pom.I<<" "<<pom.J<<endl;
 	      if(pom==wej)
 		{
 		  r.RuchKrolowa(pio,wej);
