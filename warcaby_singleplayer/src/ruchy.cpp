@@ -393,7 +393,7 @@ queue<int> ruchy::DostepneBiale()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.BialeWGrze();
-  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
+  //cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -420,7 +420,7 @@ queue<int> ruchy::DostepneCzarne()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.CzarneWGrze();
-  cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
+  //cout<<"ogolnie dostepnych pionkow na planszy "<< pom.size()<<endl;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==false)
@@ -876,10 +876,8 @@ bool ruchy::DostepLewo(pionek pio)
 {
   if(pio.poz.J==0)
     return false;
-  if(CzyBicie()==true && CzyBicie(pio)==false)
-    return false;
 
-
+  
   if(pio.bialy==true)
   {
     if(CzyBicie('B')==true && CzyBicie(pio)==false)

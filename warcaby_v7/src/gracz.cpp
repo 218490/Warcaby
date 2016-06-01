@@ -36,8 +36,7 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		{
 		  if(r.CzyBicie(pio)==true)
 		    {
-		      r.RuchPrawo(pio);
-		      return true;
+		      throw niedozwolony_ruch()
 		    }
 		  r.RuchPrawo(pio);
 		  return false;
@@ -51,8 +50,7 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		{
 		  if(r.CzyBicie(pio)==true)
 		    {
-		      r.RuchLewo(pio);
-		      return true;
+		      throw niedozwolony_ruch();
 		    }
 		  r.RuchLewo(pio);
 		  return false;
@@ -128,12 +126,10 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		{
 		  if(r.CzyBicie(pio)==true)
 		    {
-		      r.RuchPrawo(pio);
-		      return true;
+		      throw niedozwolony_ruch();
 		    }
 		  r.RuchPrawo(pio);
 		  return false;
-
 		}
 	    }
 	  else if(y==pio.poz.J-1 && x==pio.poz.I-1)
@@ -144,8 +140,7 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		{
 		  if(r.CzyBicie(pio)==true)
 		    {
-		      r.RuchLewo(pio);
-		      return true;
+		      throw niedozwolony_ruch();
 		    }
 		  r.RuchLewo(pio);
 		  return false;
