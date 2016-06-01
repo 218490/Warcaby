@@ -876,8 +876,8 @@ bool ruchy::DostepLewo(pionek pio)
 {
   if(pio.poz.J==0)
     return false;
-  if(CzyBicie()==true && CzyBicie(pio)==false)
-    return false;
+  //  if(CzyBicie()==true && CzyBicie(pio)==false)
+  //  return false;
 
 
   if(pio.bialy==true)
