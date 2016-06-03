@@ -790,7 +790,7 @@ bool ruchy::CzyBicie(pionek pio)
 	{
 //==========================PRAWY GORNY ROG===============================
 	  if(szachownica.wyjscie_poza_tablice(pio.poz.I+1,pio.poz.J+1)==false)
-	    for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I+2+i,pio.poz.J+2+i)==true; i++)
+	    for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I+2+i,pio.poz.J+2+i)==false; i++)
 	      if(szachownica.wyszukajPionek(pio.poz.I+1+i, pio.poz.J+1+i).bialy==false &&
 		 szachownica.wyszukajPionek(pio.poz.I+1+i, pio.poz.J+1+i).brak==false)
 		if(szachownica.wyszukajPionek(pio.poz.I+2+i, pio.poz.J+2+i).brak==true)
@@ -822,7 +822,7 @@ bool ruchy::CzyBicie(pionek pio)
 	{
 //==========================PRAWY GORNY ROG===============================
 	  if(szachownica.wyjscie_poza_tablice(pio.poz.I+1,pio.poz.J+1)==false)
-	    for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I+2+i,pio.poz.J+2+i)==true; i++)
+	    for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I+2+i,pio.poz.J+2+i)==false; i++)
 	      if(szachownica.wyszukajPionek(pio.poz.I+1+i, pio.poz.J+1+i).bialy==true &&
 		 szachownica.wyszukajPionek(pio.poz.I+1+i, pio.poz.J+1+i).brak==false)
 		if(szachownica.wyszukajPionek(pio.poz.I+2+i, pio.poz.J+2+i).brak==true)

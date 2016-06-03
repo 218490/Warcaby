@@ -25,12 +25,17 @@ int main(){
 	    cout<<"Podaj wiersz i kolumne pionka ktorym chcesz sie ruszyc"<<endl;
 	    cin>>x>>y;
 	    pio=gr.ZaznaczPionek(plansza,x-1,y-1, 'B');
-	    cout<<"Podaj wiersz i kolumne pola na ktore chcesz sie ruszyc"<<endl;
-	    cin>>a>>b;
-	    i=gr.RuszPionek(plansza, pio, a-1, b-1);
-	    pio=plansza.wyszukajPionek(a-1,b-1);
-	    if(plansza.CzyBicie(pio)!=true || i!=true)
-	      i=false;
+
+		cout<<"Podaj wiersz i kolumne pola na ktore chcesz sie ruszyc"<<endl;
+		cin>>a>>b;
+		i=gr.RuszPionek(plansza, pio, a-1, b-1);
+		cout<<"ruszylem pionkiem"<<endl;
+		pio=plansza.wyszukajPionek(a-1,b-1);
+		cout<<"przypisalem pionek"<<endl;
+		if(plansza.CzyBicie(pio)!=true || i!=true)
+		  i=false;
+		cout<<"sprawdzilem czy ma jeszcze bicie"<<endl;
+	      
 	  }
 	  catch (gracz::brak_ruchu)
 	    {
@@ -79,9 +84,12 @@ int main(){
 	    //if wykonano ruch -> kolej przeciwnika
 
 	    i=gr.RuszPionek(plansza, pio, a-1, b-1);
+	    		cout<<"ruszylem pionkiem"<<endl;
 	    pio=plansza.wyszukajPionek(a-1,b-1);
+		cout<<"przypisalem pionek"<<endl;
 	    if(plansza.CzyBicie(pio)==false || i==false)
 	      i=false;
+		cout<<"sprawdzilem czy ma jeszcze bicie"<<endl;
 	  }
 	  catch (gracz::brak_ruchu)
 	    {
