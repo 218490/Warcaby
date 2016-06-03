@@ -36,7 +36,7 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 		{
 		  if(r.CzyBicie(pio)==true)
 		    {
-		      throw niedozwolony_ruch()
+		      throw niedozwolony_ruch();
 		    }
 		  r.RuchPrawo(pio);
 		  return false;
