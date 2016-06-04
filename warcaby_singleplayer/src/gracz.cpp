@@ -17,8 +17,13 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 	      pom=dostepned.front();
 	      if(pom==wej)
 		{
+		  if(r.CzyBicie(pio))
+		    {
+		      r.RuchKrolowa(pio,wej);
+		      return true;
+		    }
 		  r.RuchKrolowa(pio,wej);
-		  return true;
+		  return false;
 		}
 	      dostepned.pop();
 	    }
@@ -107,8 +112,13 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 	      pom=dostepned.front();
 	      if(pom==wej)
 		{
+		  if(r.CzyBicie(pio))
+		    {
+		      r.RuchKrolowa(pio,wej);
+		      return true;
+		    }
 		  r.RuchKrolowa(pio,wej);
-		  return true;
+		  return false;
 		}
 	      dostepned.pop();
 	    }

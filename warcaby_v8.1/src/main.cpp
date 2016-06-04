@@ -12,6 +12,8 @@ int main(){
   int ID,flaga;
   string strona;
    pozycja miejsce;
+   
+  queue<int> krolowki;
   plansza.RuchPrawo(9,'B');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
@@ -39,22 +41,26 @@ int main(){
   plansza.RuchPrawo(6,'C');
   plansza.RuchLewo(4,'B');
   plansza.RuchPrawo(4,'B');
+  
+  krolowki=plansza.KrolowaBialaDostep();
+  cout<<"krolowki: "<<krolowki.front()<<endl;
+
   plansza.wyswietl(plansza.wyszukajPionek(4, 'B'));
 
   plansza.RuchLewo(4,'B');
   plansza.wyswietl();
 
-  queue<int> krolowki;
   krolowki=plansza.KrolowaBialaDostep();
   cout<<"krolowki: "<<krolowki.front()<<endl;
 
   queue<pozycja> ruchy=plansza.KrolowaRuchy(4,'B');
-  /*while(!ruchy.empty()){
+  while(!ruchy.empty()){
     cout<<ruchy.front().I<<"  "<<ruchy.front().J<<endl;
     ruchy.pop();
-  }*/
+  }
+  if(plansza.CzyBicie('B')){cout<<"jest bicie"<<endl;}
   if(plansza.CzyBicie(4,'B')){cout<<"Ma bicie"<<endl;}
-
+  ruchy=plansza.KrolowaRuchy(4,'B');
   plansza.RuchKrolowa(4,'B',ruchy.front());
   cout<<"Po ruchu"<<endl;
   plansza.wyswietl();
