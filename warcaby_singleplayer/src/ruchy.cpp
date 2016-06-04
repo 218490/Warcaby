@@ -231,10 +231,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  if(pio.poz.J<po.J)
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I-i, po.J-i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I-1, po.J-1).brak==false && szachownica.wyszukajPionek(po.I-i, po.J-i)!=pio)
+		if(szachownica.wyszukajPionek(po.I-i, po.J-i).brak==false && szachownica.wyszukajPionek(po.I-i, po.J-i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I-1, po.J-1);
+		    szachownica.usun(po.I-i, po.J-i);
 		    return 1;
 		  }
 		else
@@ -246,10 +246,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  else
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I-i, po.J+i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I-1, po.J+1).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio)
+		if(szachownica.wyszukajPionek(po.I-i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I-1, po.J+1);
+		    szachownica.usun(po.I-i, po.J+i);
 		    return 1;
 		  }
 		else
@@ -264,10 +264,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  if(pio.poz.J<po.J)
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I+i, po.J-i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I+1, po.J-1).brak==false && szachownica.wyszukajPionek(po.I+i, po.J-i)!=pio)
+		if(szachownica.wyszukajPionek(po.I+i, po.J-i).brak==false && szachownica.wyszukajPionek(po.I+i, po.J-i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I+1, po.J-1);
+		    szachownica.usun(po.I+i, po.J-i);
 		    return 1;
 		  }
 		else
@@ -279,10 +279,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  else
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I+i, po.J+i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I+1, po.J+1).brak==false && szachownica.wyszukajPionek(po.I+i, po.J+i)!=pio)
+		if(szachownica.wyszukajPionek(po.I+i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I+i, po.J+i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I+1, po.J+1);
+		    szachownica.usun(po.I+i, po.J+i);
 		    return 1;
 		  }
 		else
@@ -315,10 +315,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  else
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I-i, po.J+i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I-1, po.J+1).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio)
+		if(szachownica.wyszukajPionek(po.I-i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I-1, po.J+1);
+		    szachownica.usun(po.I-i, po.J+i);
 		    return -1;
 		  }
 		else
@@ -333,10 +333,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  if(pio.poz.J<po.J)
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I+i, po.J-i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I+1, po.J-1).brak==false && szachownica.wyszukajPionek(po.I+i, po.J-i)!=pio)
+		if(szachownica.wyszukajPionek(po.I+i, po.J-i).brak==false && szachownica.wyszukajPionek(po.I+i, po.J-i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
-		    szachownica.usun(po.I+1, po.J-1);
+		    szachownica.usun(po.I+i, po.J-i);
 		    return 1;
 		  }
 		else
@@ -348,7 +348,7 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	  else
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I+i, po.J+i)==pio; i++)
-		if(szachownica.wyszukajPionek(po.I+1, po.J+1).brak==false && szachownica.wyszukajPionek(po.I+i, po.J+i)!=pio)
+		if(szachownica.wyszukajPionek(po.I+i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I+i, po.J+i)!=pio)
 		  {
 		    szachownica.przestaw(pio, po.I, po.J);
 		    szachownica.usun(po.I+1, po.J+1);
