@@ -1,5 +1,5 @@
 #include "gracz.hh"
-#include <iostream>
+//#include <iostream>
 bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
 {
   pozycja pom;
@@ -12,11 +12,9 @@ bool gracz::RuszPionek(ruchy &r,pionek &pio , int x, int y)
       if(pio.damka==true)
 	{
 	  dostepned=r.KrolowaRuchy(pio);
-	  cout<<"ilosc dostepnych ruchow "<<dostepned.size()<<endl;
 	  while(dostepned.empty()==false)
 	    {
 	      pom=dostepned.front();
-	      cout<<"dostepne pole "<<pom.I+1<<" "<<pom.J+1<<endl;
 	      if(pom==wej)
 		{
 		  r.RuchKrolowa(pio,wej);
@@ -211,10 +209,8 @@ pionek gracz::ZaznaczPionek(ruchy &r, int x, int y, char k='C')
 	dostepne=r.DostepneCzarne();
       else
 	dostepne=r.DostepneBiale();
-      cout<<"Dostepne pionki do ruchu "<< dostepne.size()<<endl;
       while(dostepne.empty()==false)
 	{
-	  cout<<"Dostepne pionki do ruchu "<< dostepne.front()<<endl;
 	  pom=dostepne.front();
 	  if(pom==pio.id)
 	    {

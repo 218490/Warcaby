@@ -12,6 +12,7 @@ int main(){
   int ID,flaga;
   string strona;
    pozycja miejsce;
+   pionek pio;
   plansza.RuchPrawo(9,'B');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
@@ -49,12 +50,16 @@ int main(){
   //queue<int> krolowki=plansza.KrolowaCzarnaDostep();
   //cout<<"krolowki: "<<krolowki.front()<<endl;
   queue<pozycja> ruchy=plansza.KrolowaRuchy(12,'C');
-  /* while(!ruchy.empty()){
+   while(!ruchy.empty()){
     cout<<ruchy.front().I<<"  "<<ruchy.front().J<<endl;
     ruchy.pop();
-  }*/
+  }
+   ruchy=plansza.KrolowaRuchy(12,'C');
+   pio=plansza.wyszukajPionek(12,'C');
+   cout<<pio.poz.I<<" "<<pio.poz.J<<endl;
   // pozycja pom;
   //pom.I=6; pom.J=2;
+  //cout<<ruchy.front().I<<" "<<ruchy.front().J<<endl;
   plansza.RuchKrolowa(12,'C',ruchy.front());
   plansza.wyswietl();
 
