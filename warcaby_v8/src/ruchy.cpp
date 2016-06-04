@@ -360,6 +360,7 @@ queue<int> ruchy::KrolowaBialaDostep()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.BialeWGrze();
+  queue<pozycja> ruch;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==true)
@@ -368,16 +369,10 @@ queue<int> ruchy::KrolowaBialaDostep()
 	    wyjscie.push(pom[i].id);
 	  else
 	    {
-	      if(DostepPrawo(pom[i])==true)
+	      ruch=KrolowaRuchy(pom[i]);
+	      if(ruch.size()!=0)
 		{
 		  wyjscie.push(pom[i].id);
-		}
-	      else
-		{
-		  if(DostepLewo(pom[i])==true)
-		    {
-		      wyjscie.push(pom[i].id);
-		    }
 		}
 	    }
 	}
@@ -388,6 +383,7 @@ queue<int> ruchy::KrolowaCzarnaDostep()
 {
   queue<int> wyjscie;
   vector<pionek> pom=szachownica.CzarneWGrze();
+  queue<pozycja> ruch;
   for(unsigned int i=0; i<pom.size(); i++)
     {
       if(pom[i].damka==true)
@@ -396,16 +392,10 @@ queue<int> ruchy::KrolowaCzarnaDostep()
 	    wyjscie.push(pom[i].id);
 	  else
 	    {
-	      if(DostepPrawo(pom[i])==true)
+	      ruch=KrolowaRuchy(pom[i]);
+	      if(ruch.size()!=0)
 		{
 		  wyjscie.push(pom[i].id);
-		}
-	      else
-		{
-		  if(DostepLewo(pom[i])==true)
-		    {
-		      wyjscie.push(pom[i].id);
-		    }
 		}
 	    }
 	}
