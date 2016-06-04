@@ -71,7 +71,7 @@ vector<pionek> plansza::CzarneWGrze()
 }
 bool plansza::wyjscie_poza_tablice(int x, int y)
 {
-  if(x<0 || x>=rozmiar || y<0 || y>=rozmiar)
+  if(x<0 || x>7 || y<0 || y>7)
     return true;
   return false;
 }

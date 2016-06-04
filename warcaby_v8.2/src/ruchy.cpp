@@ -31,7 +31,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-			  // break;
+			   break;
 			}
 		//-----------------------------------------------------------//
 		if(szachownica.wyjscie_poza_tablice(pio.poz.I+1,pio.poz.J-1)==false)
@@ -47,7 +47,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 		      }
 		//------------------------------------------------------------//
 		if(szachownica.wyjscie_poza_tablice(pio.poz.I-1,pio.poz.J-1)==false)
@@ -63,7 +63,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 			}
 		//------------------------------------------------------------//
 		if(szachownica.wyjscie_poza_tablice(pio.poz.I-1,pio.poz.J+1)==false)
@@ -79,7 +79,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 			}
 		//------------------------------------------------------------//
 	      }
@@ -148,8 +148,9 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 		      }
+		
 		//------------------------------------------------------------//
 		for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I-2-i,pio.poz.J-2-i)==false; i++)
 		  if(szachownica.wyszukajPionek(pio.poz.I-1-i, pio.poz.J-1-i).bialy==true &&
@@ -163,7 +164,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 		      }
 		//------------------------------------------------------------//
 		for(int i=0; szachownica.wyjscie_poza_tablice(pio.poz.I-2-i,pio.poz.J+2+i)==false; i++)
@@ -178,7 +179,7 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 			      wyjscie.push(pom);
 			      i++;
 			    }
-
+			  break;
 		      }
 		//------------------------------------------------------------//
 	      }
@@ -212,6 +213,12 @@ queue<pozycja> ruchy::KrolowaRuchy(pionek pio)
 	      wyjscie.push(pom); 
 	    }
 	}
+    }
+  queue<pozycja> pp=wyjscie;
+  while(pp.empty()==false)
+    {
+      cout<<pp.front().I<<" "<<pp.front().J<<endl;
+      pp.pop();
     }
   return wyjscie;
 }
