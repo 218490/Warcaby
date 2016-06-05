@@ -154,8 +154,8 @@ void plansza::przestaw(pionek p, int x, int y)
   pionek br;
   if(wyjscie_poza_tablice(x,y)==true)
     throw wyjscie_poza_plansze();
-  if(p.brak==true)
-    throw brak_pionka();
+   if(p.brak==true)
+   throw brak_pionka();
   if(tablica[x][y].brak==false)
     {
       throw pole_zajete();
