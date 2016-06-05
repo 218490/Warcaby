@@ -9,7 +9,7 @@ Warcaby: obj obj/main.o obj/RuchDane.o obj/plansza.o obj/ruchy.o obj/Symulacja.o
 obj:
 	mkdir ./obj
 
-obj/main.o: src/main.cpp
+obj/main.o: src/mainp.cpp
 	g++ -c ${CXXFLAGS} -o obj/main.o src/mainp.cpp
 
 obj/RuchDane.o: inc/RuchDane.hh src/RuchDane.cpp

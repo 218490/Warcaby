@@ -132,7 +132,7 @@ void plansza::usun(int x, int y)
   pionek pom; //pomocnicza zmienna przechowujaca pionek na poprzedniej pozycji
   pionek pom2; //pusty pionek do zmiany pola na puste
   if(tablica[x][y].brak==true)
-    throw brak_pionka();
+   throw brak_pionka();
   pom=tablica[x][y];
   tablica[x][y]=pom2;
   if(pom.bialy==true)
@@ -154,8 +154,8 @@ void plansza::przestaw(pionek p, int x, int y)
   pionek br;
   if(wyjscie_poza_tablice(x,y)==true)
     throw wyjscie_poza_plansze();
-   if(p.brak==true)
-   throw brak_pionka();
+  if(p.brak==true)
+    throw brak_pionka();
   if(tablica[x][y].brak==false)
     {
       throw pole_zajete();

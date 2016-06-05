@@ -12,6 +12,8 @@ int main(){
   int ID,flaga;
   string strona;
   pozycja miejsce;
+  queue<int> pionki;
+  queue<pozycja> ruchy;
    //plansza.RuchPrawo(9,'B');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
@@ -209,7 +211,7 @@ int z=plansza.RuchKrolowa(12,'B',m);
     plansza.RuchLewo(11,'C');
   }  */
   //plansza.wyswietl(plansza.wyszukajPionek(7, 'C'));
-   plansza.RuchPrawo(12, 'B');
+  plansza.RuchPrawo(12, 'B');
    plansza.RuchLewo(12, 'C');
    plansza.RuchPrawo(9,'B');
    plansza.RuchLewo(10,'C');
@@ -241,6 +243,36 @@ int z=plansza.RuchKrolowa(12,'B',m);
    plansza.RuchPrawo(5,'C');
    plansza.RuchPrawo(6,'B');
    plansza.wyswietl();
-   
-  PrzestawCzarny(plansza);
+ plansza.RuchPrawo(7,'C');
+ plansza.RuchPrawo(7,'C');
+ plansza.RuchPrawo(4,'B');
+ plansza.RuchLewo(7,'C');
+ cout<<"elo"<<endl;
+   plansza.wyswietl();
+   pionki=plansza.DostepneCzarne();
+   cout<<"ilosc dostepnych czarnych "<<pionki.size()<<endl;
+   for(int i=0;pionki.empty()==false;i++)
+    {
+      cout<<pionki.front()<<"  ";
+      pionki.pop();
+    }
+    cout<<"elo"<<endl;
+     ruchy=plansza.KrolowaRuchy(7,'C');
+    cout<<"elo"<<endl;
+     while(ruchy.empty()==false)
+       {
+	 cout<<"ruchy damy"<<endl;
+      cout<<ruchy.front().I<<"  "<<ruchy.front().J<<endl;
+       ruchy.pop();
+     }
+   cout<<"elo"<<endl;
+   pionki=plansza.KrolowaCzarnaDostep();
+   for(int i=0;pionki.empty()==false;i++)
+    {
+      cout<<pionki.front()<<"  ";
+      pionki.pop();
+    }
+    PrzestawCzarny(plansza);
+//  plansza.wyswietl();
+    plansza.wyswietl();
 }

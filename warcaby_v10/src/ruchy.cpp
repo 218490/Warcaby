@@ -335,9 +335,10 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 	    {
 	      for(int i=1; szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio; i++)
 		{
-		  if(szachownica.wyszukajPionek(po.I-i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio)
+		  if(szachownica.wyszukajPionek(po.I-i, po.J+i).brak==false && szachownica.wyszukajPionek(po.I-i, po.J+i)!=pio
+		     && szachownica.wyszukajPionek(po.I-i,po.J+i).bialy==true)
 		    {
-		      szachownica.przestaw(pio, po.I, po.J);
+		      //szachownica.przestaw(pio, po.I, po.J);
 		      bity=wyszukajPionek(po.I-i, po.J+i);
 		      szachownica.usun(po.I-i, po.J+i);
 		      if(bity.damka==true)
@@ -345,7 +346,7 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 		      return -1;
 		    }
 		}
-	      szachownica.przestaw(pio, po.I, po.J);
+	      //szachownica.przestaw(pio, po.I, po.J);
 	      return 0;
 	    }
 	}

@@ -322,7 +322,7 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 		    {
 		      szachownica.przestaw(pio, po.I, po.J);
 		      bity=wyszukajPionek(po.I-i, po.J-i);
-		      szachownica.usun(po.I-i, po.J-i);
+		       szachownica.usun(po.I-i, po.J-i);
 		      if(bity.damka==true)
 			return -3;
 		      return -1;
@@ -377,7 +377,7 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 		    {
 		      szachownica.przestaw(pio, po.I, po.J);
 		      bity=wyszukajPionek(po.I+i, po.J+i);
-		      szachownica.usun(po.I+1, po.J+1);
+		      szachownica.usun(po.I+i, po.J+i);
 		      if(bity.damka==true)
 			return -3;
 		      return -1;
