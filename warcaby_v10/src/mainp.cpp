@@ -11,25 +11,25 @@ int main(){
   ruchy plansza;
   int ID,flaga;
   string strona;
-   pozycja miejsce;
-  plansza.RuchPrawo(9,'B');
+  pozycja miejsce;
+   //plansza.RuchPrawo(9,'B');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
-  plansza.RuchPrawo(12,'B');
+   // plansza.RuchPrawo(12,'B');
   //plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(10, 'C'));
-  plansza.RuchLewo(12,'C');
+   // plansza.RuchLewo(12,'C');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(11, 'C'));
-  plansza.RuchLewo(10,'C');
+     //  plansza.RuchLewo(10,'C');
 
   //plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(10, 'C'));
-  plansza.RuchPrawo(9,'B');
+   // plansza.RuchPrawo(9,'B');
   //plansza.wyswietl();
-  plansza.RuchPrawo(6,'C');
+   /// plansza.RuchPrawo(6,'C');
   //plansza.wyswietl();
-
+   /*
   plansza.RuchLewo(8,'B');
   plansza.RuchPrawo(4,'B');
   plansza.RuchLewo(7,'C');
@@ -72,13 +72,13 @@ int main(){
   PrzestawCzarny(plansza);
   plansza.RuchPrawo(7,'B');
   PrzestawCzarny(plansza);
+   */
 
-
-  plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
+   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
 
   //PrzestawCzarny(plansza);
   //plansza.RuchPrawo(3,'C');
-  plansza.wyswietl(plansza.wyszukajPionek(3, 'C'));
+  //plansza.wyswietl(plansza.wyszukajPionek(3, 'C'));
   /*queue<pozycja> ruchy=plansza.KrolowaRuchy(12,'B');
   while(!ruchy.empty()){
     cout<<ruchy.front().I<<"  "<<ruchy.front().J<<endl;
@@ -122,7 +122,7 @@ int z=plansza.RuchKrolowa(12,'B',m);
   cout<<"Strona:"<<strona<<endl;
   */
 
-  PrzestawCzarny(plansza);
+   // PrzestawCzarny(plansza);
   /*  PrzestawCzarny(plansza);
   PrzestawCzarny(plansza);
   PrzestawCzarny(plansza);*/
@@ -209,5 +209,38 @@ int z=plansza.RuchKrolowa(12,'B',m);
     plansza.RuchLewo(11,'C');
   }  */
   //plansza.wyswietl(plansza.wyszukajPionek(7, 'C'));
-
+   plansza.RuchPrawo(12, 'B');
+   plansza.RuchLewo(12, 'C');
+   plansza.RuchPrawo(9,'B');
+   plansza.RuchLewo(10,'C');
+   plansza.RuchPrawo(9,'B');
+   plansza.RuchPrawo(6,'C');
+   plansza.RuchLewo(5, 'B');
+   plansza.RuchPrawo(8,'C');
+   plansza.RuchPrawo(1,'B');
+   plansza.RuchLewo(12,'C');
+   plansza.RuchPrawo(11, 'B');
+   plansza.RuchLewo(8,'C');
+   plansza.RuchPrawo(5,'B');
+   plansza.RuchPrawo(9,'C');
+   plansza.RuchPrawo(5,'B');
+   plansza.BicieLewoTyl(6,'C');
+   plansza.RuchPrawo(7,'B');
+   plansza.RuchLewo(11,'C');
+   plansza.RuchLewo(4,'B');
+   plansza.RuchLewo(11,'C');
+   plansza.RuchLewo(7,'B');
+   plansza.BiciePrawoTyl(11,'C');
+   plansza.RuchLewo(10,'B');
+   plansza.RuchLewo(11,'C');
+   plansza.RuchLewo(10, 'B');
+   plansza.RuchLewo(7,'C');
+   plansza.RuchLewo(8,'B');
+   plansza.RuchLewo(11,'C');
+   plansza.RuchLewo(6,'B');
+   plansza.RuchPrawo(5,'C');
+   plansza.RuchPrawo(6,'B');
+   plansza.wyswietl();
+   
+  PrzestawCzarny(plansza);
 }

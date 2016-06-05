@@ -10,7 +10,7 @@ obj:
 	mkdir ./obj
 
 obj/main.o: src/main.cpp
-	g++ -c ${CXXFLAGS} -o obj/main.o src/main.cpp
+	g++ -c ${CXXFLAGS} -o obj/main.o src/mainp.cpp
 
 obj/RuchDane.o: inc/RuchDane.hh src/RuchDane.cpp
 	g++ -c ${CXXFLAGS} -o obj/RuchDane.o src/RuchDane.cpp

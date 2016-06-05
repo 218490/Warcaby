@@ -24,7 +24,7 @@ int main(){
   cout<<endl;
   }
   if(poz=='T')
-    plansza.Trudnosc(4);
+    plansza.Trudnosc(8);
   else
     plansza.Trudnosc(4);
 

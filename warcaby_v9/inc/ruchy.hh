@@ -7,7 +7,7 @@ class ruchy
 {
 private:
   plansza szachownica;
-  int glebokosc=4;
+  int glebokosc=5;
 public:
   queue<pozycja> KrolowaRuchy(int, char);
   queue<pozycja> KrolowaRuchy(pionek);
