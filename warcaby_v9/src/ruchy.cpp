@@ -539,8 +539,8 @@ int ruchy::RuchPrawo(pionek pio)
 	}
       else
 	{
-	  bity=wyszukajPionek(pio.poz.I+1, pio.poz.J+1);
 	  szachownica.przestaw(pio,pio.poz.I+1, pio.poz.J+1);
+	  bity=wyszukajPionek(pio.poz.I+1, pio.poz.J+1);
 	  if(bity.damka==true)
 	    return 3;
 	  return 0;
@@ -558,8 +558,8 @@ int ruchy::RuchPrawo(pionek pio)
 	}
       else
 	{
-	  bity=wyszukajPionek(pio.poz.I-1, pio.poz.J+1);
 	  szachownica.przestaw(pio,pio.poz.I-1, pio.poz.J+1);
+	  bity=wyszukajPionek(pio.poz.I-1, pio.poz.J+1);
 	  if(bity.damka==true)
 	    return -3;
 	  return 0;
@@ -583,8 +583,8 @@ int ruchy::RuchLewo(pionek pio)
 	}
       else
 	{
-	  bity=wyszukajPionek(pio.poz.I+1, pio.poz.J-1);
 	  szachownica.przestaw(pio,pio.poz.I+1, pio.poz.J-1);
+	  bity=wyszukajPionek(pio.poz.I+1, pio.poz.J-1);
 	  if(bity.damka==true)
 	    return 3;
 	  return 0;
@@ -602,8 +602,8 @@ int ruchy::RuchLewo(pionek pio)
 	}
       else
 	{
-	  bity=wyszukajPionek(pio.poz.I-1, pio.poz.J-1);
 	  szachownica.przestaw(pio,pio.poz.I-1, pio.poz.J-1);
+	  bity=wyszukajPionek(pio.poz.I-1, pio.poz.J-1);
 	  if(bity.damka==true)
 	    return -3;
 	  return 0;
