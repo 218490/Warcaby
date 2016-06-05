@@ -18,15 +18,17 @@ int main(){
   cout<<endl<<"kolumny podaj wartosc 100"<<endl<<endl;
 
   char poz='a';
-  while(poz!='T' && poz!='L'){
-  cout<<"Wybierz poziom trudnosci (T-trudny, L-latwy)"<<endl;
+  while(poz!='T' && poz!='L' && poz!='S'){
+  cout<<"Wybierz poziom trudnosci (T-trudny,S-sredni, L-latwy)"<<endl;
   cin>>poz;
   cout<<endl;
   }
   if(poz=='T')
-    plansza.Trudnosc(8);
-  else
+    plansza.Trudnosc(6);
+  else if(poz=='S')
     plansza.Trudnosc(4);
+  else
+    plansza.Trudnosc(2);
 
   while(i<2)
     {
