@@ -12,6 +12,7 @@ int main(){
   int ID,flaga;
   string strona;
    pozycja miejsce;
+   pionek pi;
   plansza.RuchPrawo(9,'B');
   //  plansza.wyswietl();
   //plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
@@ -75,10 +76,14 @@ int main(){
 
 
   plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
-
   PrzestawCzarny(plansza);
   plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
+  pi=plansza.wyszukajPionek(5, 3);
+  plansza.RuchPrawo(pi);
+  plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
   queue<pozycja> ruchy=plansza.KrolowaRuchy(12,'B');
+  if(plansza.CzyBicie(12,'B')){cout<<"Ma bicie"<<endl;}
+  else{cout<<"Brak bicia"<<endl;}
   while(!ruchy.empty()){
     cout<<ruchy.front().I<<"  "<<ruchy.front().J<<endl;
     ruchy.pop();
