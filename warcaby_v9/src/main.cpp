@@ -74,14 +74,15 @@ int main(){
   plansza.RuchPrawo(7,'B');
   PrzestawCzarny(plansza);
 
+  cout<<"halo"<<endl;
 
   plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
   PrzestawCzarny(plansza);
+  cout<<"halo"<<endl;
   plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
-  pi=plansza.wyszukajPionek(5, 3);
-  plansza.RuchPrawo(pi);
-  plansza.wyswietl(plansza.wyszukajPionek(12, 'B'));
+  cout<<"halo"<<endl;
   queue<pozycja> ruchy=plansza.KrolowaRuchy(12,'B');
+  cout<<"halo"<<endl;
   if(plansza.CzyBicie(12,'B')){cout<<"Ma bicie"<<endl;}
   else{cout<<"Brak bicia"<<endl;}
   while(!ruchy.empty()){

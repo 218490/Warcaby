@@ -281,7 +281,7 @@ int ruchy::RuchKrolowa(pionek pio, pozycja po)
 		  if(szachownica.wyszukajPionek(po.I+i, po.J-i).brak==false && szachownica.wyszukajPionek(po.I+i, po.J-i)!=pio)
 		    {
 		      szachownica.przestaw(pio, po.I, po.J);
-		      bity=wyszukajPionek(po.I-i, po.J+i);
+		      bity=wyszukajPionek(po.I+i, po.J-i);
 		      szachownica.usun(po.I+i, po.J-i);
 		      if(bity.damka==true)
 			return 3;
@@ -619,6 +619,7 @@ bool ruchy::BiciePrawoTyl(int ID, char kolor)
 }
 bool ruchy::BiciePrawoTyl(pionek pio)
 {
+  pionek bity;
   bity.damka=false;
   if(pio.bialy==true)
     if(CzyBiciePD(pio)==true)
